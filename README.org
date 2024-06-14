@@ -1,0 +1,18 @@
+* Casual Lib
+Casual Lib is a library package used to support the Casual porcelains. 
+
+* Requirements
+Casual Lib requires Emacs 29.3+.
+
+Casual Lib has been verified with the following configuration. 
+- Emacs 29.3 (macOS 14.5, Ubuntu Linux 22.04.4 LTS)
+
+* Sponsorship
+If you enjoy using Casual Lib, consider making a modest financial contribution to help support its development and maintenance.
+
+[[https://www.buymeacoffee.com/kickingvegas][file:docs/images/default-yellow.png]]
+
+
+* Acknowledgments
+A heartfelt thanks to all the contributors to Transit. Casual Lib would not be possible without your efforts.
+
