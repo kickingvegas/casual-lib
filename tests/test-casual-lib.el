@@ -32,6 +32,9 @@
   '((:scope . '("⬍" "#")))
   "Unicode symbol DB to use for Casual Transient menus.")
 
+(ert-deftest test-casual-lib-use-unicode ()
+  (should (symbolp 'casual-lib-use-unicode)))
+
 (ert-deftest test-casual-lib-unicode-db ()
   (let* ((item (eval (alist-get :scope casual-lib-unicode-db))))
     (should (string-equal "#" (nth 1 item)))
