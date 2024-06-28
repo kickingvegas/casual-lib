@@ -1,8 +1,9 @@
+[[https://melpa.org/#/casual-lib][file:https://melpa.org/packages/casual-lib-badge.svg]]
 * Casual Lib
 Casual Lib is a library package used to support the Casual porcelains. 
 
 * Requirements
-Casual Lib requires Emacs 29.3+.
+Casual Lib requires Emacs 29.3+ and Transient 0.6.0+.
 
 Casual Lib has been verified with the following configuration. 
 - Emacs 29.3 (macOS 14.5, Ubuntu Linux 22.04.4 LTS)
@@ -14,5 +15,5 @@ If you enjoy using Casual Lib, consider making a modest financial contribution t
 
 
 * Acknowledgments
-A heartfelt thanks to all the contributors to Transit. Casual Lib would not be possible without your efforts.
+A heartfelt thanks to all the contributors to [[https://github.com/magit/transient][Transient]]. Casual Lib would not be possible without your efforts.
 
