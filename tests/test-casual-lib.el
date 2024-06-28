@@ -113,5 +113,33 @@
 ;;     (end-of-buffer)
 ;;     (should (casual-lib-buffer-writeable-and-region-active-p))))
 
+(ert-deftest test-casual-lib-hide-navigation ()
+  (should (symbolp 'casual-lib-hide-navigation)))
+
+(ert-deftest test-casual-lib-hide-navigation-p ()
+  (let ((casual-lib-hide-navigation t))
+    (should (equal t (casual-lib-hide-navigation-p))))
+
+  (let ((casual-lib-hide-navigation nil))
+    (should (equal nil (casual-lib-hide-navigation-p)))))
+
+
+(ert-deftest test-casual-lib-quit-all-hide-navigation-p ()
+  (let ((casual-lib-hide-navigation nil)
+        (transient--stack nil))
+    (should (equal (casual-lib-quit-all-hide-navigation-p) t)))
+
+  (let ((casual-lib-hide-navigation nil)
+        (transient--stack t))
+    (should (equal (casual-lib-quit-all-hide-navigation-p) nil)))
+
+  (let ((casual-lib-hide-navigation t)
+        (transient--stack nil))
+    (should (equal (casual-lib-quit-all-hide-navigation-p) t)))
+
+  (let ((casual-lib-hide-navigation t)
+        (transient--stack t))
+    (should (equal (casual-lib-quit-all-hide-navigation-p) t))))
+
 (provide 'test-casual-lib)
 ;;; test-casual-lib.el ends here

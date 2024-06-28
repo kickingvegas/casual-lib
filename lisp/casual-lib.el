@@ -6,7 +6,7 @@
 ;; URL: https://github.com/kickingvegas/casual-lib
 ;; Keywords: tools
 ;; Version: 1.0.1
-;; Package-Requires: ((emacs "29.1"))
+;; Package-Requires: ((emacs "29.1") (transient "0.6.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -28,6 +28,21 @@
 ;;; Code:
 (require 'transient)
 (require 'casual-lib-version)
+
+(defcustom casual-lib-hide-navigation nil
+  "If non-nil then hide navigation controls.
+
+If non-nil, customize Casual porcelains to hide navigation controls for
+`transient-quit-all' (control-q) and `transient-quit-one' (control-g)."
+  :type 'boolean
+  :group 'casual)
+
+(defun casual-lib-customize-casual-lib-hide-navigation ()
+  "Customize `casual-lib-hide-navigation'.
+
+Customize Casual porcelains to hide navigation commands."
+  (interactive)
+  (customize-variable 'casual-lib-hide-navigation))
 
 (defcustom casual-lib-use-unicode nil
   "If non-nil then use Unicode symbols whenever appropriate for labels."
@@ -71,6 +86,18 @@ plain ASCII-range string."
   "Predicate to test if buffer is writeable and region is active."
   (and (casual-lib-buffer-writeable-p) (region-active-p)))
 
+(defun casual-lib-hide-navigation-p ()
+  "Predicate for variable `casual-lib-hide-navigation'."
+  (if casual-lib-hide-navigation t nil))
+
+(defun casual-lib-quit-all-hide-navigation-p ()
+  "Predicate for hiding navigation for the `transient-quit-all' command."
+  (if casual-lib-hide-navigation
+      t
+    (if transient--stack
+        nil
+      t)))
+
 ;; Labels
 (defun casual-lib--variable-to-checkbox (v)
   "Checkbox string representation of variable V.
@@ -91,22 +118,62 @@ V is either nil or non-nil."
   "Label constructed with LABEL and SUFFIX separated by a space."
   (format "%s %s" label suffix))
 
-;; Transient Navigation
+(defun casual-lib--quit-one-suffix-label ()
+  "Description label for Transient suffix `casual-lib-quit-one'."
+  (if transient--stack
+      "‹Back"
+    "Dismiss"))
+
+;; Transients
 (transient-define-suffix casual-lib-quit-all ()
-  "Dismiss all menus."
+  "Casual suffix to call `transient-quit-all'."
   :transient nil
+  :if-not #'casual-lib-quit-all-hide-navigation-p
   :key "C-q"
   :description "Dismiss"
   (interactive)
   (transient-quit-all))
 
 (transient-define-suffix casual-lib-quit-one ()
-  "Go back to previous menu."
+  "Casual suffix to call `transient-quit-one'."
   :transient nil
   :key "C-g"
-  :description "‹Back"
+  :if-not #'casual-lib-hide-navigation-p
+  :description (casual-lib--quit-one-suffix-label)
   (interactive)
   (transient-quit-one))
+
+(transient-define-suffix casual-lib-customize-unicode ()
+  "Customize Casual to use Unicode symbols.
+
+This Transient suffix invokes the customize interface for the
+variable `casual-lib-use-unicode'.
+
+Note that this variable affects all Casual porcelains."
+  :key "u"
+  :transient nil
+  :description (lambda ()
+                 (casual-lib-checkbox-label
+                  casual-lib-use-unicode
+                  "Use Unicode Symbols"))
+  (interactive)
+  (casual-lib-customize-casual-lib-use-unicode))
+
+(transient-define-suffix casual-lib-customize-hide-navigation ()
+  "Customize Casual hide navigation controls.
+
+This Transient suffix invokes the customize interface for the
+variable `casual-lib-hide-navigation'.
+
+Note that this variable affects all Casual porcelains."
+  :key "n"
+  :transient nil
+  :description (lambda ()
+                 (casual-lib-checkbox-label
+                  casual-lib-hide-navigation
+                  "Hide Navigation Commands"))
+  (interactive)
+  (casual-lib-customize-casual-lib-hide-navigation))
 
 (provide 'casual-lib)
 ;;; casual-lib.el ends here

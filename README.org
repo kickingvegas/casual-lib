@@ -1,3 +1,4 @@
+[[https://melpa.org/#/casual-lib][file:https://melpa.org/packages/casual-lib-badge.svg]]
 * Casual Lib
 Casual Lib is a library package used to support the Casual porcelains. 
 
@@ -14,5 +15,5 @@ If you enjoy using Casual Lib, consider making a modest financial contribution t
 
 
 * Acknowledgments
-A heartfelt thanks to all the contributors to Transit. Casual Lib would not be possible without your efforts.
+A heartfelt thanks to all the contributors to [[https://github.com/magit/transient][Transient]]. Casual Lib would not be possible without your efforts.
 
