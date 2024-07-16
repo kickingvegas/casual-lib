@@ -139,7 +139,7 @@ V is either nil or non-nil."
   :transient nil
   :key "C-g"
   :if-not #'casual-lib-hide-navigation-p
-  :description (casual-lib--quit-one-suffix-label)
+  :description #'casual-lib--quit-one-suffix-label
   (interactive)
   (transient-quit-one))
 
