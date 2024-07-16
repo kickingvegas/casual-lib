@@ -5,7 +5,7 @@
 ;; Author: Charles Choi <kickingvegas@gmail.com>
 ;; URL: https://github.com/kickingvegas/casual-lib
 ;; Keywords: tools
-;; Version: 1.1.0
+;; Version: 1.1.1
 ;; Package-Requires: ((emacs "29.1") (transient "0.6.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -139,7 +139,7 @@ V is either nil or non-nil."
   :transient nil
   :key "C-g"
   :if-not #'casual-lib-hide-navigation-p
-  :description (casual-lib--quit-one-suffix-label)
+  :description #'casual-lib--quit-one-suffix-label
   (interactive)
   (transient-quit-one))
 
