@@ -15,11 +15,7 @@ Also needed is the Python [[https://pypi.org/project/semver/][semver]] module. T
 
 For source code management, Casual Lib uses ~git~.
 
-Given a clone of this repository, ensure that the directory holding ~casual-avg.el~ is in your ~info-path~. Add the following lines to your Emacs initialization file.
-#+begin_src elisp :lexical no
-  (require 'casual-avy)
-  (keymap-global-set "M-g" #'casual-avy-tmenu)
-#+end_src
+Given a clone of this repository, ensure that the directory holding ~casual-lib.el~ is in your ~info-path~.
 
 * Branches
 For Casual Lib development, there are two git branches of note:
