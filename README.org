@@ -1,6 +1,7 @@
 [[https://melpa.org/#/casual-lib][file:https://melpa.org/packages/casual-lib-badge.svg]]
+
 * Casual Lib
-Casual Lib is a library package used to support the Casual porcelains. 
+Casual Lib is a library package used to support the Casual suite of user interfaces. 
 
 * Requirements
 Casual Lib requires Emacs 29.3+ and Transient 0.6.0+.

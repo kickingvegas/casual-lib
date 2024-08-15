@@ -1,11 +1,11 @@
-;;; casual-lib.el --- Library routines for Casual porcelains -*- lexical-binding: t; -*-
+;;; casual-lib.el --- Library routines for Casual user interfaces -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2024  Charles Choi
 
 ;; Author: Charles Choi <kickingvegas@gmail.com>
 ;; URL: https://github.com/kickingvegas/casual-lib
 ;; Keywords: tools
-;; Version: 1.1.1
+;; Version: 1.1.2
 ;; Package-Requires: ((emacs "29.1") (transient "0.6.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
 
 ;;; Commentary:
 
-;; Library routines for Casual porcelains.
+;; Library routines for Casual user interfaces.
 
 ;;; Code:
 (require 'transient)
@@ -32,7 +32,7 @@
 (defcustom casual-lib-hide-navigation nil
   "If non-nil then hide navigation controls.
 
-If non-nil, customize Casual porcelains to hide navigation controls for
+If non-nil, customize Casual user interfaces to hide navigation controls for
 `transient-quit-all' (control-q) and `transient-quit-one' (control-g)."
   :type 'boolean
   :group 'casual)
@@ -40,7 +40,7 @@ If non-nil, customize Casual porcelains to hide navigation controls for
 (defun casual-lib-customize-casual-lib-hide-navigation ()
   "Customize `casual-lib-hide-navigation'.
 
-Customize Casual porcelains to hide navigation commands."
+Customize Casual user interfaces to hide navigation commands."
   (interactive)
   (customize-variable 'casual-lib-hide-navigation))
 
@@ -52,7 +52,7 @@ Customize Casual porcelains to hide navigation commands."
 (defun casual-lib-customize-casual-lib-use-unicode ()
   "Customize `casual-lib-use-unicode'.
 
-Customize Casual porcelains to use Unicode symbols in place of strings
+Customize Casual user interfaces to use Unicode symbols in place of strings
 when appropriate."
   (interactive)
   (customize-variable 'casual-lib-use-unicode))
@@ -149,7 +149,7 @@ V is either nil or non-nil."
 This Transient suffix invokes the customize interface for the
 variable `casual-lib-use-unicode'.
 
-Note that this variable affects all Casual porcelains."
+Note that this variable affects all Casual user interfaces."
   :key "u"
   :transient nil
   :description (lambda ()
@@ -165,7 +165,7 @@ Note that this variable affects all Casual porcelains."
 This Transient suffix invokes the customize interface for the
 variable `casual-lib-hide-navigation'.
 
-Note that this variable affects all Casual porcelains."
+Note that this variable affects all Casual user interfaces."
   :key "n"
   :transient nil
   :description (lambda ()
