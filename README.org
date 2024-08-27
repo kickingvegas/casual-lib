@@ -4,10 +4,16 @@
 Casual Lib is a library package used to support the Casual suite of user interfaces. 
 
 * Requirements
-Casual Lib requires Emacs 29.3+ and Transient 0.6.0+.
+Casual Lib requires Emacs 29.1+ and Transient 0.6.0+.
 
 Casual Lib has been verified with the following configuration. 
-- Emacs 29.3 (macOS 14.5, Ubuntu Linux 22.04.4 LTS)
+- Emacs 29.4 (macOS 14.6.1, Ubuntu Linux 22.04.4 LTS)
+- Transient 0.7.4  
+
+* Install
+Casual Lib is intended to be implicitly installed as a dependency to the Casual suite of packages. To take advantage of recent features in Transient, Casual Lib requires a more recent version of Transient than what is built-in to Emacs 29.4. In order to update your system to the most recent version of Transient from either [[https://melpa.org/#/transient][MELPA]] or [[https://elpa.gnu.org/packages/transient.html][ELPA]], customize the variable ~package-install-upgrade-built-in~ to ~t~.
+
+As Transient is closely tied to Magit, installing the latest version of Magit (via [[https://elpa.nongnu.org/nongnu/magit.html][non-GNU ELPA]] or [[https://melpa.org/#/magit][MELPA]]) can also pick up the latest version of Transient.
 
 * Sponsorship
 If you enjoy using Casual Lib, consider making a modest financial contribution to help support its development and maintenance.
