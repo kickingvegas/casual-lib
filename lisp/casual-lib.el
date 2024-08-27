@@ -5,7 +5,7 @@
 ;; Author: Charles Choi <kickingvegas@gmail.com>
 ;; URL: https://github.com/kickingvegas/casual-lib
 ;; Keywords: tools
-;; Version: 1.1.2
+;; Version: 1.1.3
 ;; Package-Requires: ((emacs "29.1") (transient "0.6.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,6 +24,12 @@
 ;;; Commentary:
 
 ;; Library routines for Casual user interfaces.
+
+;; INSTALLATION
+;; Casual Lib is intended to be implicitly installed as a dependency to the
+;; Casual suite of packages. If you are running Emacs 29.x, you will need to
+;; configure `package-install-upgrade-built-in' to t to support an update of the
+;; built-in package `transient'.
 
 ;;; Code:
 (require 'transient)

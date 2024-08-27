@@ -118,7 +118,7 @@ Transient prefix that calls it, then the sequence should include
 values which trigger dismissal of the prefix. An example would be
 appending \"q\" to the keysequence."
   (mapc (lambda (x)
-          (let ((binding (plist-get x :binding))
+          (let ((binding (kbd (plist-get x :binding)))
                 (command (plist-get x :command)))
             (casualt-testbench-transient-suffix menu
                                                 binding
