@@ -22,7 +22,7 @@
 
 ;;; Code:
 
-(defconst casual-lib-version "1.1.4-rc.1"
+(defconst casual-lib-version "1.1.4"
   "Casual Lib Version.")
 
 (defun casual-lib-version ()
