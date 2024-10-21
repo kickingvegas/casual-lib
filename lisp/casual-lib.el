@@ -5,7 +5,7 @@
 ;; Author: Charles Choi <kickingvegas@gmail.com>
 ;; URL: https://github.com/kickingvegas/casual-lib
 ;; Keywords: tools
-;; Version: 1.1.4
+;; Version: 1.1.5-rc.1
 ;; Package-Requires: ((emacs "29.1") (transient "0.6.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,6 +23,12 @@
 
 ;;; Commentary:
 
+;; NOTICE
+;; This package `casual-lib' has been superseded by the package `casual'.
+;; Please update to the `casual' package from either MELPA or MELPA stable. Upon
+;; installation and upgrade of the `casual' package, this package will be
+;; removed.
+
 ;; Library routines for Casual user interfaces.
 
 ;; INSTALLATION
@@ -34,6 +40,13 @@
 ;;; Code:
 (require 'transient)
 (require 'casual-lib-version)
+
+(display-warning
+ :warning
+ (concat
+  "NOTICE: "
+  "The package casual-lib has been superseded by the package casual. "
+  "Please upgrade to casual at your earliest convenience."))
 
 (defcustom casual-lib-hide-navigation nil
   "If non-nil then hide navigation controls.
